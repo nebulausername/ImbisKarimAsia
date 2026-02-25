@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Search } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { menuData } from '@/lib/menuData';
@@ -111,28 +112,35 @@ export default function MenuPage() {
                                         <h2 className="font-display font-bold text-2xl text-white mb-6 border-b border-white/10 pb-2">{cat.title}</h2>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                             {cat.items.map((item, idx) => (
-                                                <div key={idx} className="bg-[#111] border border-white/5 rounded-2xl p-5 hover:border-white/10 transition-colors flex justify-between gap-4 group">
-                                                    <div>
-                                                        <div className="flex items-center gap-2 mb-1">
-                                                            <h3 className="font-bold text-zinc-100 group-hover:text-viet-green transition-colors text-balance">{item.name}</h3>
+                                                <div key={idx} className="bg-[#111] border border-white/5 rounded-2xl p-4 hover:border-white/10 transition-colors flex gap-4 group">
+                                                    {(item as any).image && (
+                                                        <div className="w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-xl overflow-hidden relative bg-zinc-900 border border-white/5">
+                                                            <Image src={(item as any).image} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                                                        </div>
+                                                    )}
+                                                    <div className="flex-1 flex flex-col justify-between">
+                                                        <div>
+                                                            <div className="flex justify-between items-start mb-1 gap-2">
+                                                                <h3 className="font-bold text-zinc-100 group-hover:text-viet-green transition-colors text-balance leading-tight">{item.name}</h3>
+                                                                <div className="font-display font-bold text-white shrink-0">{item.price}</div>
+                                                            </div>
                                                             {((item as any).isBestseller) && (
-                                                                <span className="shrink-0 bg-yellow-500/20 text-yellow-500 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Top</span>
+                                                                <span className="inline-block shrink-0 bg-yellow-500/20 text-yellow-500 text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wider mb-2">Top Bestseller</span>
+                                                            )}
+                                                            {(item as any).desc && (
+                                                                <p className="text-zinc-500 text-xs sm:text-sm mb-2 text-balance leading-snug">{(item as any).desc}</p>
                                                             )}
                                                         </div>
-                                                        {(item as any).desc && (
-                                                            <p className="text-zinc-500 text-sm mb-2 text-balance">{(item as any).desc}</p>
-                                                        )}
                                                         {(item as any).tags && (
-                                                            <div className="flex flex-wrap gap-1.5 mt-2">
+                                                            <div className="flex flex-wrap gap-1.5 mt-auto pt-2">
                                                                 {(item as any).tags.map((t: string) => (
-                                                                    <span key={t} className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-white/5 text-zinc-400 border border-white/5">
+                                                                    <span key={t} className="text-[9px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-white/5 text-zinc-400 border border-white/5">
                                                                         {t}
                                                                     </span>
                                                                 ))}
                                                             </div>
                                                         )}
                                                     </div>
-                                                    <div className="font-display font-bold text-lg text-white shrink-0">{item.price}</div>
                                                 </div>
                                             ))}
                                         </div>

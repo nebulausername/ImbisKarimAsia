@@ -54,37 +54,54 @@ export default function ContactPage() {
                     </div>
 
                     <div className="bg-[#111] border border-white/5 rounded-3xl p-8 shadow-2xl space-y-8">
-                        <h2 className="font-display font-bold text-2xl text-white border-b border-white/10 pb-4">Öffnungszeiten</h2>
+                        <h2 className="font-display font-bold text-2xl text-white border-b border-white/10 pb-4">Standort Karte</h2>
+                        <div className="w-full h-[300px] md:h-full min-h-[300px] rounded-2xl overflow-hidden relative">
+                            <iframe
+                                className="absolute inset-0 w-full h-full grayscale-[20%] contrast-[1.1] rounded-2xl"
+                                frameBorder="0"
+                                scrolling="no"
+                                marginHeight={0}
+                                marginWidth={0}
+                                src="https://maps.google.com/maps?q=Wei%C3%9Fenseer%20Str.%2031A%2C%2099610%20S%C3%B6mmerda&t=m&z=15&output=embed&iwloc=near"
+                                title="Imbiss Nguyen's Pho Viet Location"
+                                aria-label="Google Maps Location">
+                            </iframe>
+                            <div className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-[#111] to-transparent pointer-events-none"></div>
+                        </div>
+                    </div>
+                </div>
 
-                        <div className="space-y-4">
-                            <div className="flex justify-between items-center py-2 border-b border-white/5">
-                                <span className="text-zinc-300">Montag</span>
-                                <span className="text-white font-medium">10:30 – 21:00</span>
-                            </div>
-                            <div className="flex justify-between items-center py-2 border-b border-white/5">
-                                <span className="text-zinc-300">Dienstag</span>
-                                <span className="text-white font-medium">10:30 – 21:00</span>
-                            </div>
-                            <div className="flex justify-between items-center py-2 border-b border-white/5">
-                                <span className="text-zinc-300">Mittwoch</span>
-                                <span className="text-white font-medium">10:30 – 21:00</span>
-                            </div>
-                            <div className="flex justify-between items-center py-2 border-b border-white/5">
-                                <span className="text-zinc-300">Donnerstag</span>
-                                <span className="text-white font-medium">10:30 – 21:00</span>
-                            </div>
-                            <div className="flex justify-between items-center py-2 border-b border-white/5">
-                                <span className="text-zinc-300">Freitag</span>
-                                <span className="text-white font-medium">10:30 – 21:00</span>
-                            </div>
-                            <div className="flex justify-between items-center py-2 border-b border-white/5">
-                                <span className="text-zinc-300">Samstag</span>
-                                <span className="text-white font-medium text-viet-green">Ruhetag</span>
-                            </div>
-                            <div className="flex justify-between items-center py-2 border-b border-white/5">
-                                <span className="text-zinc-300">Sonntag & Feiertage</span>
-                                <span className="text-white font-medium">11:00 – 21:00</span>
-                            </div>
+                <div className="mt-8 bg-[#111] border border-white/5 rounded-3xl p-8 shadow-2xl space-y-8">
+                    <h2 className="font-display font-bold text-2xl text-white border-b border-white/10 pb-4">Öffnungszeiten</h2>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+                        <div className="flex justify-between items-center py-2 border-b border-white/5">
+                            <span className="text-zinc-300">Montag</span>
+                            <span className="text-white font-medium">10:30 – 21:00</span>
+                        </div>
+                        <div className="flex justify-between items-center py-2 border-b border-white/5">
+                            <span className="text-zinc-300">Dienstag</span>
+                            <span className="text-white font-medium">10:30 – 21:00</span>
+                        </div>
+                        <div className="flex justify-between items-center py-2 border-b border-white/5">
+                            <span className="text-zinc-300">Mittwoch</span>
+                            <span className="text-white font-medium">10:30 – 21:00</span>
+                        </div>
+                        <div className="flex justify-between items-center py-2 border-b border-white/5">
+                            <span className="text-zinc-300">Donnerstag</span>
+                            <span className="text-white font-medium">10:30 – 21:00</span>
+                        </div>
+                        <div className="flex justify-between items-center py-2 border-b border-white/5">
+                            <span className="text-zinc-300">Freitag</span>
+                            <span className="text-white font-medium">10:30 – 21:00</span>
+                        </div>
+                        <div className="flex justify-between items-center py-2 border-b border-white/5">
+                            <span className="text-zinc-300">Samstag</span>
+                            <span className="text-white font-medium text-viet-green">Ruhetag</span>
+                        </div>
+                        <div className="flex justify-between items-center py-2 border-b border-white/5">
+                            <span className="text-zinc-300">Sonntag & Feiertage</span>
+                            <span className="text-white font-medium">11:00 – 21:00</span>
                         </div>
                     </div>
                 </div>
