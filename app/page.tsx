@@ -57,7 +57,7 @@ export default function HomePage() {
                         <div className="w-14 h-14 rounded-2xl bg-[#1a1a1a] flex items-center justify-center mb-4 group-hover:bg-viet-green/10 transition-colors">
                             <Utensils className="w-7 h-7 text-viet-green" />
                         </div>
-                        <h3 className="font-display font-bold text-xl mb-2 text-white">Takeaway & Vor Ort</h3>
+                        <h3 className="font-display font-bold text-xl mb-2 text-white">Zum Mitnehmen oder Vor Ort</h3>
                         <p className="text-zinc-400 text-sm">Frisch zubereitet für dich zum Mitnehmen. Einfach anrufen & abholen.</p>
                     </motion.div>
 

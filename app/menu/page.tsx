@@ -10,6 +10,7 @@ export default function MenuPage() {
     const [activeCategory, setActiveCategory] = useState(menuData[0].id);
     const [searchQuery, setSearchQuery] = useState('');
     const [showBestsellersOnly, setShowBestsellersOnly] = useState(false);
+    const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
     const filteredCategories = menuData.map(category => {
         const filteredItems = category.items.filter(item => {
@@ -112,10 +113,16 @@ export default function MenuPage() {
                                         <h2 className="font-display font-bold text-2xl text-white mb-6 border-b border-white/10 pb-2">{cat.title}</h2>
                                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                             {cat.items.map((item, idx) => (
-                                                <div key={idx} className="bg-[#111] border border-white/5 rounded-2xl p-4 hover:border-white/10 transition-colors flex gap-4 group">
+                                                <div key={idx} className="bg-[#111] border border-white/5 rounded-2xl p-4 hover:border-white/10 transition-colors flex gap-4 group relative">
                                                     {(item as any).image && (
-                                                        <div className="w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-xl overflow-hidden relative bg-zinc-900 border border-white/5">
-                                                            <Image src={(item as any).image} alt={item.name} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+                                                        <div
+                                                            onClick={() => setSelectedImage((item as any).image)}
+                                                            className="w-20 h-20 sm:w-24 sm:h-24 shrink-0 rounded-xl overflow-hidden relative bg-zinc-900 border border-white/5 cursor-pointer"
+                                                        >
+                                                            <Image src={(item as any).image} alt={item.name} fill className="object-cover group-hover:scale-110 transition-transform duration-500" />
+                                                            <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors flex items-center justify-center">
+                                                                <Search className="w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity drop-shadow-md" />
+                                                            </div>
                                                         </div>
                                                     )}
                                                     <div className="flex-1 flex flex-col justify-between">
@@ -151,6 +158,35 @@ export default function MenuPage() {
                     </div>
                 )}
             </div>
+
+            {/* Lightbox Modal */}
+            <AnimatePresence>
+                {selectedImage && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={() => setSelectedImage(null)}
+                        className="fixed inset-0 z-50 bg-black/90 backdrop-blur-sm flex items-center justify-center p-4 cursor-zoom-out"
+                    >
+                        <motion.div
+                            initial={{ scale: 0.9, y: 20 }}
+                            animate={{ scale: 1, y: 0 }}
+                            exit={{ scale: 0.9, y: 20 }}
+                            className="relative w-full max-w-3xl overflow-hidden rounded-2xl bg-zinc-900 shadow-2xl"
+                            onClick={(e) => e.stopPropagation()}
+                        >
+                            <button
+                                onClick={() => setSelectedImage(null)}
+                                className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full bg-black/50 hover:bg-black/80 text-white flex items-center justify-center transition-colors backdrop-blur-md"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+                            </button>
+                            <img src={selectedImage} alt="Gericht Vorschau" className="w-full h-auto max-h-[85vh] object-contain" />
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </main>
     );
 }

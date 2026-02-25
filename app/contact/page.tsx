@@ -53,11 +53,11 @@ export default function ContactPage() {
                         </div>
                     </div>
 
-                    <div className="bg-[#111] border border-white/5 rounded-3xl p-8 shadow-2xl space-y-8">
-                        <h2 className="font-display font-bold text-2xl text-white border-b border-white/10 pb-4">Standort Karte</h2>
-                        <div className="w-full h-[300px] md:h-full min-h-[300px] rounded-2xl overflow-hidden relative">
+                    <div className="bg-[#111] border border-white/5 rounded-3xl p-8 shadow-2xl flex flex-col h-full">
+                        <h2 className="font-display font-bold text-2xl text-white border-b border-white/10 pb-4 mb-6">Standort Karte</h2>
+                        <div className="w-full flex-1 min-h-[300px] sm:min-h-[400px] rounded-2xl overflow-hidden relative">
                             <iframe
-                                className="absolute inset-0 w-full h-full grayscale-[20%] contrast-[1.1] rounded-2xl"
+                                className="absolute inset-0 w-full h-full grayscale-[10%] contrast-[1.1] rounded-2xl"
                                 frameBorder="0"
                                 scrolling="no"
                                 marginHeight={0}
