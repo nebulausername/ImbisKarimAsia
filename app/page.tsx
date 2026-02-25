@@ -19,8 +19,8 @@ export default function HomePage() {
                     transition={{ duration: 0.8 }}
                     className="font-display font-bold text-5xl md:text-7xl lg:text-8xl tracking-tight mb-6 text-balance relative z-10 text-white leading-[1.1] drop-shadow-xl"
                 >
-                    Frisch aus dem Wok. <br className="hidden md:block" />
-                    <span className="text-viet-green">Viet-Style</span> in Sömmerda.
+                    Sömmerda isst jetzt <br className="hidden md:block" />
+                    <span className="text-viet-green">asia­tisch.</span>
                 </motion.h1>
 
                 <motion.p
@@ -29,7 +29,7 @@ export default function HomePage() {
                     transition={{ duration: 0.8, delay: 0.2 }}
                     className="text-lg md:text-xl text-zinc-300 max-w-2xl mb-10 relative z-10 text-balance font-medium"
                 >
-                    Authentische vietnamesische Küche, knusprige Ente und frische Bowls. Schnell, heiß und extrem lecker.
+                    Handgemacht, frisch aus dem Wok – täglich für dich. Knusprige Ente, cremige Currys, perfekte Bowls. Das ist <span className="text-white font-semibold">NguYen&apos;s Pho Viet.</span>
                 </motion.p>
 
                 <motion.div
