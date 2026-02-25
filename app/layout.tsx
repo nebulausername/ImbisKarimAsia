@@ -11,7 +11,15 @@ const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit' });
 
 export const metadata: Metadata = {
     title: "Imbiss Nguyen's Pho Viet | Asiatisch in Sömmerda",
-    description: 'Frisch aus dem Wok. Viet-Style in Sömmerda. Takeaway und Lieferservice. Adresse: Weißenseer Str. 31A, 99610 Sömmerda',
+    description: 'Frisch aus dem Wok. Viet-Style in Sömmerda. Authentische vietnamesische Küche, knusprige Ente, frische Bowls. Takeaway und Lieferservice. Weißenseer Str. 31A, 99610 Sömmerda',
+    keywords: ['Asiatisch', 'Imbiss', 'Sömmerda', 'Vietnamesisch', 'Pho', 'Bistro', 'Lieferservice', 'Takeaway', 'Gebratene Nudeln', 'Ente'],
+    authors: [{ name: "Nguyen's Pho Viet" }],
+    openGraph: {
+        title: "Imbiss Nguyen's Pho Viet | Asiatisch in Sömmerda",
+        description: 'Frisch aus dem Wok. Viet-Style in Sömmerda. Takeaway und Lieferservice.',
+        locale: 'de_DE',
+        type: 'website',
+    },
 };
 
 export default function RootLayout({
